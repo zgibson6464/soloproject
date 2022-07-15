@@ -1,0 +1,10 @@
+I am hoping to create a chore tracking website. 
+Living with roomates, it would be beneficial to use a tracking website to assign chores for the week, as well as track what chores have been done.
+
+This would be utilizing code from the first stack that included HTML, CSS, Javascript, Python, Flask, and MySQL.
+
+Github link: https://github.com/zgibson6464/soloproject
+
+backlog: 
+- add a comments section to each chore to describe anything worth mentioning. 
+- create a 'house hold' section so more people could use and assign a household. 
