@@ -15,7 +15,43 @@
             </nav>
         </header>
         <main>
-    
+    <h1>House Chore List</h1>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+    <form action="/register/user" method="post" name="register">
+        <h2>Register</h2>
+        <label>First Name:
+            <input type="text" name="first_name">
+        </label>
+        <label>Last Name:
+            <input type="text" name="last_name">
+        </label>
+        <label>Email:
+            <input type="text" name="email">
+        </label>
+        <label>Password:
+            <input type="password" name="password">
+        </label>
+        <label>Confirm Password:
+            <input type="password" name="confirm_password">
+        </label>
+        <input type="submit" value="Register" class="btn">
+    </form>
+    <form action="/login" method="post" name="login">
+        <h2>Login</h2>
+        <label>Email:
+            <input type="text" name="email">
+        </label>
+        <label for="password">Password:
+            <input type="password" name="password">
+        </label>
+        <input type="submit" value="Login" class="btn">
+    </form>
         </main>
         <footer>
     
