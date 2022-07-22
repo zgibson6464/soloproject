@@ -3,7 +3,7 @@ from flask_app.models.job import Job
 from flask_app import app
 from flask import render_template,redirect,request,session,flash
 
-@app.route('/chore/new')
+@app.route('/job/new')
 def new_job():
     if 'user_id' not in session:
         return redirect('/logout')
