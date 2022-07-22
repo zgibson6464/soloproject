@@ -1,8 +1,7 @@
-from sqlite3 import connect
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask_app.models import chore
+from flask_app.models import job
 from flask import flash
-from flask import app
+from flask_app import app
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 import re
@@ -47,6 +46,15 @@ class User:
         results = connectToMySQL(cls.db).query_db(query,data)
         return cls(results[0])
 
+    @classmethod
+    def get_by_email(cls,data):
+        query = """SELECT * FROM users 
+        WHERE email = %(email)s
+        ;"""
+        result = connectToMySQL(cls.db).query_db(query,data)
+        if len(result) < 1:
+            return False
+        return cls(result[0])
 
     @staticmethod
     def validate_register( user ):

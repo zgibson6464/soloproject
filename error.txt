@@ -1,0 +1,16 @@
+[    ] Installing...Failed to load paths:   File "<string>", line 1
+    import sysconfig, distutils.sysconfig, io, json, sys; 
+    paths = {
+        u'purelib': u'{0}'.format(distutils.sysconfig.get_python_lib(plat_specific=0)),
+        u'stdlib': u'{0}'.format(sysconfig.get_path('stdlib')),
+        u'platlib': u'{0}'.format(distutils.sysconfig.get_python_lib(plat_specific=1)),
+        u'platstdlib': u'{0}'.format(sysconfig.get_path('platstdlib')),
+        u'include': u'{0}'.format(distutils.sysconfig.get_python_inc(plat_specific=0)),
+        u'platinclude': u'{0}'.format(distutils.sysconfig.get_python_inc(plat_specific=1)),
+        u'scripts': u'{0}'.format(sysconfig.get_path('scripts')),
+        u'py_version_short': u'{0}'.format(distutils.sysconfig.get_python_version()),
+         }; 
+         value = u'{0}'.format(json.dumps(paths));
+         fh = io.open('c:/users/zack's/appdata/local/temp/tmpcwx7n1vj.json', 'w');
+          fh.write(value);
+           fh.close()
