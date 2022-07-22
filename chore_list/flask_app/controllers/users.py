@@ -1,9 +1,11 @@
-from flask_app.models.user import User
-from flask_app.models.job import Job
+from flask_app.models import user
+from flask_app.models import job
 from flask_app import app
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 from flask import render_template,redirect,request,session,flash
+User = user.User
+Job = job.Job
 
 @app.route('/')
 def index():
@@ -39,3 +41,19 @@ def login():
         return redirect('/')
     session['user_id'] = user_in_db.id
     return redirect('/dashboard')
+
+@app.route('/dashboard')
+def success():
+    if 'user_id' not in session:
+        return redirect('/logout')
+    data = {
+        'id' : session['user_id']
+    }
+    user = User.get_by_id(data)
+    all_jobs = Job.get_all()
+    return render_template('dashboard.html', user=user, all_jobs=all_jobs)
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')

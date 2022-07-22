@@ -27,21 +27,21 @@
             <tbody >
                 {% for job in all_jobs %}
                 <tr>
-                    <td>{{show.title}}</td>
-                    <td>{{show.network}}</td>
-                    <td>{{show.release_date.strftime('%Y-%m-%d')}}</td>
+                    <td>{{job.title}}</td>
+                    <td>{{job.network}}</td>
+                    <td>{{created_at.strftime('%Y-%m-%d')}}</td>
                     <td>
-                        <a href="/show/{{show.id}}" class="btn">View</a>
-                        {% if show.user.id == session.user_id %}
-                        <a href="/show/edit/{{show.id}}" class="btn"> Edit</a>
-                        <a href="/show/remove/{{show.id}}" class="btn"> Delete</a>
+                        <a href="/job/{{job.id}}" class="btn">View</a>
+                        {% if job.user.id == session.user_id %}
+                        <a href="/job/edit/{{job.id}}" class="btn"> Edit</a>
+                        <a href="/job/remove/{{job.id}}" class="btn"> Delete</a>
                         {% endif %}
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <a href="/show/new" class="btn">Add new show</a>
+        <a href="/chore/new">Add New</a>
     </div>
     </main>
     <footer>
