@@ -11,7 +11,7 @@ def new_job():
         'id' : session['user_id']
     }
     user=User.get_by_id(data)
-    return render_template('add_new_job.html', user=user)
+    return render_template("new_job.html", user=user)
 
 @app.route('/job/new/add', methods=['POST'])
 def add_new_job():

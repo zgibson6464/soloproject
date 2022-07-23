@@ -1,11 +1,9 @@
-from flask_app.models import user
-from flask_app.models import job
+from flask_app.models.user import User
+from flask_app.models.job import Job
 from flask_app import app
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 from flask import render_template,redirect,request,session,flash
-User = user.User
-Job = job.Job
 
 @app.route('/')
 def index():
